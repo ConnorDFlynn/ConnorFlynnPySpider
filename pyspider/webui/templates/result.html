@@ -19,15 +19,24 @@
   <body>
     <div class="top-bar">
       <h1>{{ project }} - Results</h1>
+	  <h2 class ="pull-right">Downloads</h1>
+	  <div class="pull-left">
+        <form action="http://google.com"
+			target="_blank">
+			<input type="submit" value="Search">
+		</form>
+        </div>
       <div class="btn-group">
         <a href="/results/dump/{{ project }}.json"
           target="_blank" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-download-alt"></span>
           JSON</a>
         <a href="/results/dump/{{ project }}.txt"
-          target="_blank" class="btn btn-default btn-sm">URL-JSON</a>
+          target="_blank" class="btn btn-default btn-sm">TXT</a>
+		<a href="/results/dump/{{ project }}.html"
+          target="_blank" class="btn btn-default btn-sm">PASTBIN</a>
         <a href="/results/dump/{{ project }}.csv"
-          target="_blank" class="btn btn-default btn-sm">CSV</a>
+          target="_blank" class="btn btn-default btn-sm">EXCEL</a>
       </div>
     </div>
     # set common_fields, results = result_formater(results)
@@ -85,6 +94,6 @@
           <a href="{% if current_page+1<total_page %}/results?project={{ project }}&offset={{ (current_page+1)*limit }}&limit={{ limit }}{% endif %}">&raquo;</a>
         </li>
       </ul>
-    </div>
+    </div>	
   </body>
 </html>
