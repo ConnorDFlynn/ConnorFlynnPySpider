@@ -52,3 +52,7 @@ def dump_result(project, _format):
     elif _format == 'csv':
         return Response(result_dump.dump_as_csv(results),
                         mimetype='text/csv')
+    elif _format == 'html':
+        return Response(result_dump.dump_as_html(results),
+                        mimetype='text/html')
+	
