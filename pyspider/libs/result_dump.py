@@ -9,6 +9,7 @@ import six
 import csv
 import json
 import itertools
+import urllib.request
 from io import StringIO, BytesIO
 from six import iteritems
 
@@ -66,6 +67,12 @@ def dump_as_txt(results):
             result['url'] + '\t' +
             json.dumps(result['result'], ensure_ascii=False) + '\n'
         )
+
+def dump_as_html(results):
+    pastebin_vars = {'api_dev_key':'57fe1369d02477a235057557cbeabaa1','api_option':'paste','api_paste_code':results}
+    with urllib.urlopen('http://pastebin.com/api/api_post.php', urllib.urlencode(pastebin_vars)) as past_url:
+        path = past_url.read()
+    print(path)
 
 
 def dump_as_csv(results):
